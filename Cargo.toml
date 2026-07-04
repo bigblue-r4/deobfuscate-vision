@@ -1,0 +1,30 @@
+[package]
+name        = "deobfuscate-vision"
+version     = "0.1.0"
+edition     = "2021"
+license     = "MIT"
+description = "Image-borne prompt-injection detection. Extracts every machine-readable text channel from an image (metadata, QR, rendered/hidden text) and scores each with the deobfuscate engine."
+repository  = "https://github.com/bigblue-r4/deobfuscate-vision"
+keywords    = ["security", "llm", "prompt-injection", "ocr", "steganography"]
+categories  = ["computer-vision", "multimedia::images"]
+readme      = "README.md"
+
+[dependencies]
+# Companion to the text engine — all string-level scoring is delegated here.
+# Git dep on the pushed tag so the crate resolves standalone (CI, other clones)
+# without requiring deobfuscate to be published to crates.io first. Switch to
+# `deobfuscate = "1.18"` once that crate is on crates.io.
+deobfuscate  = { git = "https://github.com/bigblue-r4/deobfuscate-rs", tag = "v1.18.0" }
+image        = { version = "0.25", default-features = false, features = ["png", "jpeg", "gif", "webp", "bmp"] }
+kamadak-exif = "0.6"
+rqrr         = "0.8"
+thiserror    = "2"
+serde        = { version = "1", features = ["derive"], optional = true }
+
+[features]
+default = []
+# Propagate structured serialization down into deobfuscate's report types.
+serde = ["dep:serde", "deobfuscate/serde"]
+
+[dev-dependencies]
+image = { version = "0.25", default-features = false, features = ["png"] }

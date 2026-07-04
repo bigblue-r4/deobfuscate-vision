@@ -1,0 +1,4 @@
+/target
+# Generated benchmark corpus — regenerate with `cargo run --example gen_fixtures`.
+# labels.jsonl embeds absolute paths, so it is machine-specific.
+/fixtures
