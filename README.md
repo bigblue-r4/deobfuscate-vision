@@ -1,5 +1,8 @@
 # deobfuscate-vision
 
+[![CI](https://github.com/bigblue-r4/deobfuscate-vision/actions/workflows/ci.yml/badge.svg)](https://github.com/bigblue-r4/deobfuscate-vision/actions/workflows/ci.yml)
+[![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 Image-borne prompt-injection detection — the multimodal companion to
 [`deobfuscate`](https://crates.io/crates/deobfuscate).
 
@@ -29,6 +32,16 @@ for ch in &report.channels {
     println!("{:?}: {}", ch.source, ch.extracted);
 }
 ```
+
+## Contents
+
+- [What it detects](#what-it-detects)
+- [Scope](#scope)
+- [The visibility differential](#the-visibility-differential)
+- [OCR is pluggable, not bundled](#ocr-is-pluggable-not-bundled)
+- [Hygiene (mitigation)](#hygiene-mitigation)
+- [Pipeline placement](#pipeline-placement)
+- [License](#license)
 
 ## What it detects
 
