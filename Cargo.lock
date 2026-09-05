@@ -96,7 +96,8 @@ dependencies = [
 [[package]]
 name = "deobfuscate"
 version = "1.18.0"
-source = "git+https://github.com/bigblue-r4/deobfuscate-rs?tag=v1.18.0#60d178c4fbc455a4e9bc2faf77314fb2fb852193"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9fcadbaeafc1549b8a11b2de683996c3a0f920facd401ec2904d052f0b8d355f"
 dependencies = [
  "base64",
  "hmac",

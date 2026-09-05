@@ -11,10 +11,11 @@ readme      = "README.md"
 
 [dependencies]
 # Companion to the text engine — all string-level scoring is delegated here.
-# Git dep on the pushed tag so the crate resolves standalone (CI, other clones)
-# without requiring deobfuscate to be published to crates.io first. Switch to
-# `deobfuscate = "1.18"` once that crate is on crates.io.
-deobfuscate  = { git = "https://github.com/bigblue-r4/deobfuscate-rs", tag = "v1.18.0" }
+# Was a git dep on the v1.18.0 tag, because deobfuscate was not yet published.
+# It is now on crates.io, so this resolves from the registry instead: a git dep
+# on a GitHub URL only works while that repo is publicly readable, and it is
+# not any more. Registry deps do not care about repo visibility.
+deobfuscate  = "1.18"
 image        = { version = "0.25", default-features = false, features = ["png", "jpeg", "gif", "webp", "bmp"] }
 kamadak-exif = "0.6"
 rqrr         = "0.8"
