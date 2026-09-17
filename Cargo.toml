@@ -12,9 +12,10 @@ readme      = "README.md"
 [dependencies]
 # Companion to the text engine — all string-level scoring is delegated here.
 # Was a git dep on the v1.18.0 tag, because deobfuscate was not yet published.
-# It is now on crates.io, so this resolves from the registry instead: a git dep
-# on a GitHub URL only works while that repo is publicly readable, and it is
-# not any more. Registry deps do not care about repo visibility.
+# It is on crates.io now, so this resolves from the registry instead, and stays
+# that way on purpose: a git dep on a GitHub URL resolves only while that repo
+# is publicly readable, so it breaks the moment the repo is closed. Registry
+# deps do not care about repo visibility. Prefer them.
 deobfuscate  = "1.18"
 image        = { version = "0.25", default-features = false, features = ["png", "jpeg", "gif", "webp", "bmp"] }
 kamadak-exif = "0.6"
