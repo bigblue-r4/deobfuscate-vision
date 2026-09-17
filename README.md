@@ -14,9 +14,11 @@ with the exact engine you already run on prompts — so a homoglyph or Base64
 payload rendered *inside* an image is caught by the same passes that catch it in
 text.
 
+Not on crates.io yet — depend on it by git and pin the revision:
+
 ```toml
 [dependencies]
-deobfuscate-vision = "0.1"
+deobfuscate-vision = { git = "https://github.com/bigblue-r4/deobfuscate-vision", tag = "v0.1.0" }
 ```
 
 ```rust
